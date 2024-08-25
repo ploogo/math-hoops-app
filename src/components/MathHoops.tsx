@@ -108,12 +108,17 @@ export function MathHoops() {
   useEffect(() => {
     if (selectedTopic) {
       const topicQuestions = questions.filter(q => q.type === selectedTopic)
-      const shuffled = topicQuestions.sort(() => 0.5 - Math.random())
+      const shuffled = [...topicQuestions].sort(() => 0.5 - Math.random())
       setDailyQuestions(shuffled.slice(0, 20))
+      setCurrentQuestionIndex(0)
+      setQuizCompleted(false)
+      setMessage('')
     }
   }, [selectedTopic])
 
   const checkAnswer = () => {
+    if (!dailyQuestions.length) return;
+    
     const currentQuestion = dailyQuestions[currentQuestionIndex]
     const formattedUserAnswer = userAnswer.replace(/\s/g, '').toLowerCase()
     const formattedCorrectAnswer = currentQuestion.answer.replace(/\s/g, '').toLowerCase()
@@ -135,7 +140,7 @@ export function MathHoops() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestionIndex < 19) {
+    if (currentQuestionIndex < dailyQuestions.length - 1) {
       setCurrentQuestionIndex(prevIndex => prevIndex + 1)
       setMessage('')
     } else {
@@ -223,7 +228,7 @@ export function MathHoops() {
                     renderTopicSelection()
                   ) : !quizCompleted ? (
                     <>
-                      <p className="mb-2 text-raptors-black">Question {currentQuestionIndex + 1} of 20</p>
+                      <p className="mb-2 text-raptors-black">Question {currentQuestionIndex + 1} of {dailyQuestions.length}</p>
                       <p className="mb-1 text-raptors-black">Difficulty: {dailyQuestions[currentQuestionIndex].difficulty}</p>
                       <p className="mb-4 text-raptors-black">{dailyQuestions[currentQuestionIndex].question}</p>
                       <div className="flex space-x-4 mb-4">
