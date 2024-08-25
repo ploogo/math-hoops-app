@@ -23,19 +23,14 @@ interface Question {
 }
 
 const questions: Question[] = [
-  // Multiplication
   { question: "What is 7 × 8?", answer: "56", difficulty: "easy", explanation: "7 × 8 = 56", type: "multiplication" },
   { question: "If a basketball team scores 9 points in each quarter, how many points do they score in a full game?", answer: "36", difficulty: "medium", explanation: "There are 4 quarters in a game, so 9 × 4 = 36 points", type: "multiplication" },
-  // Division
   { question: "If a team scores 48 points and each player scores 6 points, how many players scored?", answer: "8", difficulty: "medium", explanation: "48 ÷ 6 = 8 players", type: "division" },
   { question: "A basketball court is 94 feet long. If you divide it into 5 equal sections, how long is each section?", answer: "18.8", difficulty: "hard", explanation: "94 ÷ 5 = 18.8 feet", type: "division" },
-  // Geometry
   { question: "What is the area of a rectangular basketball court that is 94 feet long and 50 feet wide?", answer: "4700", difficulty: "medium", explanation: "Area = length × width, so 94 × 50 = 4,700 square feet", type: "geometry" },
   { question: "If a basketball hoop is 10 feet high and a player can jump 3 feet, how much higher does the ball need to go?", answer: "7", difficulty: "easy", explanation: "10 - 3 = 7 feet", type: "geometry" },
-  // Fractions
   { question: "If a player makes 3 out of 4 free throws, what fraction of the free throws did they make?", answer: "3/4", difficulty: "easy", explanation: "They made 3 out of 4, which is represented as the fraction 3/4", type: "fractions" },
   { question: "If a team wins 5/8 of their games and they've played 40 games, how many games have they won?", answer: "25", difficulty: "hard", explanation: "5/8 of 40 is (5 × 40) ÷ 8 = 200 ÷ 8 = 25 games", type: "fractions" },
-  // Add more questions for each type...
 ];
 
 const basketballFunFacts = [
@@ -44,11 +39,6 @@ const basketballFunFacts = [
   "The basketball used in the NBA must be inflated to between 7.5 and 8.5 pounds per square inch.",
   "The first basketball game was played with a soccer ball and two peach baskets.",
   "The Boston Celtics have won the most NBA championships with 17 titles.",
-  "Kareem Abdul-Jabbar is the all-time leading scorer in NBA history with 38,387 points.",
-  "The shortest player in NBA history was Muggsy Bogues at 5 feet 3 inches tall.",
-  "The NBA adopted the three-point line in the 1979-80 season.",
-  "A regulation NBA basketball court is 94 feet long and 50 feet wide.",
-  "The NBA's 24-second shot clock was introduced in 1954 to speed up the game.",
 ];
 
 const nbaHighlights = [
@@ -77,35 +67,6 @@ export function MathHoops() {
   const [dailyQuestions, setDailyQuestions] = useState<Question[]>([])
 
   useEffect(() => {
-    const now = new Date()
-    const night = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0)
-    const msToMidnight = night.getTime() - now.getTime()
-
-    const timer = setTimeout(() => {
-      setCurrentQuestionIndex(0)
-      setQuizCompleted(false)
-      setMessage('')
-      setFouls(0)
-      setDailyCompletion(0)
-      setSelectedTopic(null)
-      if (dailyCompletion === 20) {
-        setStreak(prevStreak => prevStreak + 1)
-        setCurrentDay(prevDay => (prevDay + 1) % 180)
-        setShowVideo(true)
-        setCurrentVideoIndex(prevIndex => (prevIndex + 1) % nbaHighlights.length)
-      } else {
-        setStreak(0)
-      }
-      setGameHistory(prevHistory => [
-        ...prevHistory,
-        { date: new Date(), score, fouls, completed: dailyCompletion === 20 }
-      ])
-    }, msToMidnight)
-
-    return () => clearTimeout(timer)
-  }, [dailyCompletion, score, fouls])
-
-  useEffect(() => {
     if (selectedTopic) {
       const topicQuestions = questions.filter(q => q.type === selectedTopic)
       const shuffled = [...topicQuestions].sort(() => 0.5 - Math.random())
@@ -113,12 +74,14 @@ export function MathHoops() {
       setCurrentQuestionIndex(0)
       setQuizCompleted(false)
       setMessage('')
+      setDailyCompletion(0)
+      setFouls(0)
     }
   }, [selectedTopic])
 
   const checkAnswer = () => {
-    if (!dailyQuestions.length) return;
-    
+    if (dailyQuestions.length === 0 || currentQuestionIndex >= dailyQuestions.length) return;
+
     const currentQuestion = dailyQuestions[currentQuestionIndex]
     const formattedUserAnswer = userAnswer.replace(/\s/g, '').toLowerCase()
     const formattedCorrectAnswer = currentQuestion.answer.replace(/\s/g, '').toLowerCase()
@@ -137,16 +100,12 @@ export function MathHoops() {
     }
     setUserAnswer('')
     setDailyCompletion(prevCompletion => prevCompletion + 1)
-  }
 
-  const nextQuestion = () => {
-    if (currentQuestionIndex < dailyQuestions.length - 1) {
-      setCurrentQuestionIndex(prevIndex => prevIndex + 1)
-      setMessage('')
-    } else {
+    if (dailyCompletion + 1 >= 20) {
       setQuizCompleted(true)
-      setMessage("Game over! Great job on today's practice.")
       setShowVideo(true)
+    } else {
+      setCurrentQuestionIndex(prevIndex => prevIndex + 1)
     }
   }
 
@@ -229,8 +188,8 @@ export function MathHoops() {
                   ) : !quizCompleted ? (
                     <>
                       <p className="mb-2 text-raptors-black">Question {currentQuestionIndex + 1} of {dailyQuestions.length}</p>
-                      <p className="mb-1 text-raptors-black">Difficulty: {dailyQuestions[currentQuestionIndex].difficulty}</p>
-                      <p className="mb-4 text-raptors-black">{dailyQuestions[currentQuestionIndex].question}</p>
+                      <p className="mb-1 text-raptors-black">Difficulty: {dailyQuestions[currentQuestionIndex]?.difficulty}</p>
+                      <p className="mb-4 text-raptors-black">{dailyQuestions[currentQuestionIndex]?.question}</p>
                       <div className="flex space-x-4 mb-4">
                         <input
                           type="text"
@@ -245,13 +204,15 @@ export function MathHoops() {
                       {message && (
                         <div className="mb-4">
                           <p className="text-raptors-black">{message}</p>
-                          <Button onClick={nextQuestion} className="mt-2 bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Next Question</Button>
                         </div>
                       )}
                       {renderFouls()}
                     </>
                   ) : (
-                    <p className="text-raptors-black">{message}</p>
+                    <div>
+                      <p className="text-raptors-black mb-4">Great job! You've completed today's practice.</p>
+                      <Button onClick={() => setSelectedTopic(null)} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Start New Topic</Button>
+                    </div>
                   )}
                 </CardContent>
               </Card>
@@ -307,7 +268,7 @@ export function MathHoops() {
                     title={`${nbaHighlights[currentVideoIndex].player} highlights`}
                   ></iframe>
                 </div>
-              </CardContent>
+              </Card>
             </Card>
           )}
         </CardContent>
