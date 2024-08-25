@@ -19,29 +19,45 @@ interface Question {
   answer: string;
   difficulty: string;
   explanation: string;
+  type: 'multiplication' | 'division' | 'geometry' | 'fractions';
 }
 
 const questions: Question[] = [
-  { 
-    question: "If a basketball court is 94 feet long and 50 feet wide, what is its area?", 
-    answer: "4700",
-    difficulty: "easy",
-    explanation: "To find the area of a rectangle, multiply its length by its width. So, 94 feet × 50 feet = 4,700 square feet."
-  },
-  { 
-    question: "A player scores 24 points in the first half and 18 in the second. What fraction of their total points were scored in the first half?", 
-    answer: "4/7",
-    difficulty: "medium",
-    explanation: "Total points = 24 + 18 = 42. Fraction of points in first half = 24/42, which simplifies to 4/7."
-  },
-  { 
-    question: "If a team's win percentage is 0.65 and they've played 80 games, how many games have they won?", 
-    answer: "52",
-    difficulty: "hard",
-    explanation: "Win percentage of 0.65 means they've won 65% of their games. 65% of 80 is 0.65 × 80 = 52 games."
-  },
-  // ... add more questions with varying difficulties
-]
+  // Multiplication
+  { question: "What is 7 × 8?", answer: "56", difficulty: "easy", explanation: "7 × 8 = 56", type: "multiplication" },
+  { question: "If a basketball team scores 9 points in each quarter, how many points do they score in a full game?", answer: "36", difficulty: "medium", explanation: "There are 4 quarters in a game, so 9 × 4 = 36 points", type: "multiplication" },
+  // Division
+  { question: "If a team scores 48 points and each player scores 6 points, how many players scored?", answer: "8", difficulty: "medium", explanation: "48 ÷ 6 = 8 players", type: "division" },
+  { question: "A basketball court is 94 feet long. If you divide it into 5 equal sections, how long is each section?", answer: "18.8", difficulty: "hard", explanation: "94 ÷ 5 = 18.8 feet", type: "division" },
+  // Geometry
+  { question: "What is the area of a rectangular basketball court that is 94 feet long and 50 feet wide?", answer: "4700", difficulty: "medium", explanation: "Area = length × width, so 94 × 50 = 4,700 square feet", type: "geometry" },
+  { question: "If a basketball hoop is 10 feet high and a player can jump 3 feet, how much higher does the ball need to go?", answer: "7", difficulty: "easy", explanation: "10 - 3 = 7 feet", type: "geometry" },
+  // Fractions
+  { question: "If a player makes 3 out of 4 free throws, what fraction of the free throws did they make?", answer: "3/4", difficulty: "easy", explanation: "They made 3 out of 4, which is represented as the fraction 3/4", type: "fractions" },
+  { question: "If a team wins 5/8 of their games and they've played 40 games, how many games have they won?", answer: "25", difficulty: "hard", explanation: "5/8 of 40 is (5 × 40) ÷ 8 = 200 ÷ 8 = 25 games", type: "fractions" },
+  // Add more questions for each type...
+];
+
+const basketballFunFacts = [
+  "The NBA three-point line is 23 feet 9 inches from the center of the hoop.",
+  "Wilt Chamberlain holds the record for most points scored in a single NBA game with 100 points in 1962.",
+  "The basketball used in the NBA must be inflated to between 7.5 and 8.5 pounds per square inch.",
+  "The first basketball game was played with a soccer ball and two peach baskets.",
+  "The Boston Celtics have won the most NBA championships with 17 titles.",
+  "Kareem Abdul-Jabbar is the all-time leading scorer in NBA history with 38,387 points.",
+  "The shortest player in NBA history was Muggsy Bogues at 5 feet 3 inches tall.",
+  "The NBA adopted the three-point line in the 1979-80 season.",
+  "A regulation NBA basketball court is 94 feet long and 50 feet wide.",
+  "The NBA's 24-second shot clock was introduced in 1954 to speed up the game.",
+];
+
+const nbaHighlights = [
+  { player: "LeBron James", videoId: "b5r1GtBOANc" },
+  { player: "Stephen Curry", videoId: "rb9QvBPuInA" },
+  { player: "Kevin Durant", videoId: "uk1TrP6Sj0U" },
+  { player: "Giannis Antetokounmpo", videoId: "RLmRDZPL1VQ" },
+  { player: "Kawhi Leonard", videoId: "6yW7Tg9VVSw" },
+];
 
 export function MathHoops() {
   const [score, setScore] = useState(0)
@@ -54,6 +70,11 @@ export function MathHoops() {
   const [streak, setStreak] = useState(0)
   const [dailyCompletion, setDailyCompletion] = useState(0)
   const [gameHistory, setGameHistory] = useState<GameHistoryItem[]>([])
+  const [currentDay, setCurrentDay] = useState(0)
+  const [showVideo, setShowVideo] = useState(false)
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [selectedTopic, setSelectedTopic] = useState<'multiplication' | 'division' | 'geometry' | 'fractions' | null>(null)
+  const [dailyQuestions, setDailyQuestions] = useState<Question[]>([])
 
   useEffect(() => {
     const now = new Date()
@@ -66,22 +87,34 @@ export function MathHoops() {
       setMessage('')
       setFouls(0)
       setDailyCompletion(0)
-      if (dailyCompletion === 10) {
+      setSelectedTopic(null)
+      if (dailyCompletion === 20) {
         setStreak(prevStreak => prevStreak + 1)
+        setCurrentDay(prevDay => (prevDay + 1) % 180)
+        setShowVideo(true)
+        setCurrentVideoIndex(prevIndex => (prevIndex + 1) % nbaHighlights.length)
       } else {
         setStreak(0)
       }
       setGameHistory(prevHistory => [
         ...prevHistory,
-        { date: new Date(), score, fouls, completed: dailyCompletion === 10 }
+        { date: new Date(), score, fouls, completed: dailyCompletion === 20 }
       ])
     }, msToMidnight)
 
     return () => clearTimeout(timer)
   }, [dailyCompletion, score, fouls])
 
+  useEffect(() => {
+    if (selectedTopic) {
+      const topicQuestions = questions.filter(q => q.type === selectedTopic)
+      const shuffled = topicQuestions.sort(() => 0.5 - Math.random())
+      setDailyQuestions(shuffled.slice(0, 20))
+    }
+  }, [selectedTopic])
+
   const checkAnswer = () => {
-    const currentQuestion = questions[currentQuestionIndex]
+    const currentQuestion = dailyQuestions[currentQuestionIndex]
     const formattedUserAnswer = userAnswer.replace(/\s/g, '').toLowerCase()
     const formattedCorrectAnswer = currentQuestion.answer.replace(/\s/g, '').toLowerCase()
 
@@ -102,12 +135,13 @@ export function MathHoops() {
   }
 
   const nextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
+    if (currentQuestionIndex < 19) {
       setCurrentQuestionIndex(prevIndex => prevIndex + 1)
       setMessage('')
     } else {
       setQuizCompleted(true)
       setMessage("Game over! Great job on today's practice.")
+      setShowVideo(true)
     }
   }
 
@@ -115,24 +149,24 @@ export function MathHoops() {
     return (
       <div className="flex items-center mt-2">
         {[...Array(5)].map((_, i) => (
-          <div key={i} className={`w-4 h-4 rounded-full mr-1 ${i < fouls ? 'bg-red-500' : 'bg-gray-300'}`} aria-hidden="true"></div>
+          <div key={i} className={`w-4 h-4 rounded-full mr-1 ${i < fouls ? 'bg-raptors-red' : 'bg-raptors-gray-light'}`} aria-hidden="true"></div>
         ))}
-        <span className="ml-2">{5 - fouls} fouls left</span>
+        <span className="ml-2 text-raptors-black">{5 - fouls} fouls left</span>
       </div>
     )
   }
 
   const renderParentDashboard = () => {
     return (
-      <Card>
+      <Card className="bg-raptors-black text-raptors-white">
         <CardContent className="pt-6">
-          <h3 className="text-2xl font-bold mb-4">Parent Dashboard</h3>
+          <h3 className="text-2xl font-bold mb-4 text-raptors-red">Parent Dashboard</h3>
           <p>Current Streak: {streak} days</p>
           <p>Total Score: {score}</p>
-          <p>Questions Completed Today: {dailyCompletion}/10</p>
-          <h4 className="text-xl font-bold mt-4 mb-2">Game History</h4>
+          <p>Questions Completed Today: {dailyCompletion}/20</p>
+          <h4 className="text-xl font-bold mt-4 mb-2 text-raptors-red">Game History</h4>
           {gameHistory.map((game, index) => (
-            <div key={index} className="mb-2">
+            <div key={index} className="mb-2 border-b border-raptors-gray-dark pb-2">
               <p>Date: {game.date.toLocaleDateString()}</p>
               <p>Score: {game.score}</p>
               <p>Fouls: {game.fouls}</p>
@@ -144,78 +178,94 @@ export function MathHoops() {
     )
   }
 
+  const renderTopicSelection = () => {
+    return (
+      <div className="mb-4">
+        <h3 className="text-2xl font-bold mb-4 text-raptors-red">Choose Your Practice Topic</h3>
+        <div className="grid grid-cols-2 gap-4">
+          <Button onClick={() => setSelectedTopic('multiplication')} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Multiplication</Button>
+          <Button onClick={() => setSelectedTopic('division')} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Division</Button>
+          <Button onClick={() => setSelectedTopic('geometry')} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Geometry</Button>
+          <Button onClick={() => setSelectedTopic('fractions')} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Fractions</Button>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className="min-h-screen bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center p-8">
-      <Card className="max-w-4xl mx-auto bg-background/80 backdrop-blur">
-        <CardHeader>
-          <CardTitle className="text-4xl font-bold text-center text-primary">Math Hoops</CardTitle>
+    <div className="min-h-screen bg-raptors-black p-8">
+      <Card className="max-w-4xl mx-auto bg-raptors-white">
+        <CardHeader className="bg-raptors-red">
+          <CardTitle className="text-4xl font-bold text-center text-raptors-white">Math Hoops</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="bg-raptors-white">
           <Tabs defaultValue="practice" className="w-full">
-            <TabsList className="grid w-full grid-cols-5 mb-4">
-              <TabsTrigger value="learn"><Book className="mr-2" />Learn</TabsTrigger>
-              <TabsTrigger value="practice"><CircleDot className="mr-2" />Practice</TabsTrigger>
-              <TabsTrigger value="achievements"><Trophy className="mr-2" />Achievements</TabsTrigger>
-              <TabsTrigger value="settings"><Settings className="mr-2" />Settings</TabsTrigger>
-              <TabsTrigger value="parent"><User className="mr-2" />Parent</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-5 mb-4 bg-raptors-gray-light">
+              <TabsTrigger value="learn" className="text-raptors-black hover:bg-raptors-red hover:text-raptors-white"><Book className="mr-2" />Learn</TabsTrigger>
+              <TabsTrigger value="practice" className="text-raptors-black hover:bg-raptors-red hover:text-raptors-white"><CircleDot className="mr-2" />Practice</TabsTrigger>
+              <TabsTrigger value="achievements" className="text-raptors-black hover:bg-raptors-red hover:text-raptors-white"><Trophy className="mr-2" />Achievements</TabsTrigger>
+              <TabsTrigger value="settings" className="text-raptors-black hover:bg-raptors-red hover:text-raptors-white"><Settings className="mr-2" />Settings</TabsTrigger>
+              <TabsTrigger value="parent" className="text-raptors-black hover:bg-raptors-red hover:text-raptors-white"><User className="mr-2" />Parent</TabsTrigger>
             </TabsList>
             <TabsContent value="learn">
-              <Card>
+              <Card className="bg-raptors-white">
                 <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Today&apos;s Lesson: Area</h3>
-                  <p>Area is the space inside a 2D shape. To find the area of a rectangle, multiply its length by its width.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-raptors-red">Today&apos;s Lesson: Area</h3>
+                  <p className="text-raptors-black">Area is the space inside a 2D shape. To find the area of a rectangle, multiply its length by its width.</p>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="practice">
-              <Card>
+              <Card className="bg-raptors-white">
                 <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Daily Math Challenge</h3>
-                  {!quizCompleted ? (
+                  <h3 className="text-2xl font-bold mb-4 text-raptors-red">Daily Math Challenge</h3>
+                  {!selectedTopic ? (
+                    renderTopicSelection()
+                  ) : !quizCompleted ? (
                     <>
-                      <p className="mb-2">Question {currentQuestionIndex + 1} of {questions.length}</p>
-                      <p className="mb-1">Difficulty: {questions[currentQuestionIndex].difficulty}</p>
-                      <p className="mb-4">{questions[currentQuestionIndex].question}</p>
+                      <p className="mb-2 text-raptors-black">Question {currentQuestionIndex + 1} of 20</p>
+                      <p className="mb-1 text-raptors-black">Difficulty: {dailyQuestions[currentQuestionIndex].difficulty}</p>
+                      <p className="mb-4 text-raptors-black">{dailyQuestions[currentQuestionIndex].question}</p>
                       <div className="flex space-x-4 mb-4">
                         <input
                           type="text"
                           value={userAnswer}
                           onChange={(e) => setUserAnswer(e.target.value)}
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="flex h-10 w-full rounded-md border border-raptors-gray-light bg-raptors-white px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-raptors-gray-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-raptors-red focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                           placeholder="Enter your answer"
                           aria-label="Your answer"
                         />
-                        <Button onClick={checkAnswer}>Submit</Button>
+                        <Button onClick={checkAnswer} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Submit</Button>
                       </div>
                       {message && (
                         <div className="mb-4">
-                          <p className="text-accent-foreground">{message}</p>
-                          <Button onClick={nextQuestion} className="mt-2">Next Question</Button>
+                          <p className="text-raptors-black">{message}</p>
+                          <Button onClick={nextQuestion} className="mt-2 bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Next Question</Button>
                         </div>
                       )}
                       {renderFouls()}
                     </>
                   ) : (
-                    <p className="text-accent-foreground">{message}</p>
+                    <p className="text-raptors-black">{message}</p>
                   )}
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="achievements">
-              <Card>
+              <Card className="bg-raptors-white">
                 <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Your Achievements</h3>
-                  <p>Current Streak: {streak} days</p>
-                  <p>Total Score: {score}</p>
-                  <p>Questions Completed Today: {dailyCompletion}/10</p>
+                  <h3 className="text-2xl font-bold mb-4 text-raptors-red">Your Achievements</h3>
+                  <p className="text-raptors-black">Current Streak: {streak} days</p>
+                  <p className="text-raptors-black">Total Score: {score}</p>
+                  <p className="text-raptors-black">Questions Completed Today: {dailyCompletion}/20</p>
                 </CardContent>
               </Card>
             </TabsContent>
             <TabsContent value="settings">
-              <Card>
+              <Card className="bg-raptors-white">
                 <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Game Settings</h3>
-                  <p>Customize your Math Hoops experience here.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-raptors-red">Game Settings</h3>
+                  <p className="text-raptors-black">Customize your Math Hoops experience here.</p>
                 </CardContent>
               </Card>
             </TabsContent>
@@ -225,17 +275,36 @@ export function MathHoops() {
           </Tabs>
           <div className="mt-6 space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold">Score: {score}</span>
-              <span className="text-lg font-semibold">Level: {level}</span>
+              <span className="text-lg font-semibold text-raptors-black">Score: {score}</span>
+              <span className="text-lg font-semibold text-raptors-black">Level: {level}</span>
             </div>
-            <Progress value={(score % (level * 50)) / (level * 50) * 100} className="w-full" />
+            <Progress value={(score % (level * 50)) / (level * 50) * 100} className="w-full bg-raptors-gray-light">
+              <div className="h-full bg-raptors-red" style={{ width: `${(score % (level * 50)) / (level * 50) * 100}%` }}></div>
+            </Progress>
           </div>
-          <Card className="mt-6">
+          <Card className="mt-6 bg-raptors-black">
             <CardContent className="pt-6">
-              <h3 className="text-xl font-bold mb-2">Basketball Fun Fact</h3>
-              <p>Did you know? The first basketball game was played with a soccer ball and two peach baskets nailed to balcony railings.</p>
+              <h3 className="text-xl font-bold mb-2 text-raptors-red">Basketball Fun Fact</h3>
+              <p className="text-raptors-white">{basketballFunFacts[currentDay % basketballFunFacts.length]}</p>
             </CardContent>
           </Card>
+          {showVideo && (
+            <Card className="mt-6 bg-raptors-black">
+              <CardContent className="pt-6">
+                <h3 className="text-xl font-bold mb-2 text-raptors-red">NBA Highlight of the Day</h3>
+                <p className="text-raptors-white mb-2">Watch highlights of {nbaHighlights[currentVideoIndex].player}</p>
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${nbaHighlights[currentVideoIndex].videoId}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={`${nbaHighlights[currentVideoIndex].player} highlights`}
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </CardContent>
       </Card>
     </div>
