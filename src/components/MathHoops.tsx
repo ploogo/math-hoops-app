@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -5,7 +7,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { CircleDot, Book, Trophy, Settings, User } from 'lucide-react'
 
-const questions = [
+interface GameHistoryItem {
+  date: Date;
+  score: number;
+  fouls: number;
+  completed: boolean;
+}
+
+interface Question {
+  question: string;
+  answer: string;
+  difficulty: string;
+  explanation: string;
+}
+
+const questions: Question[] = [
   { 
     question: "If a basketball court is 94 feet long and 50 feet wide, what is its area?", 
     answer: "4700",
@@ -27,7 +43,7 @@ const questions = [
   // ... add more questions with varying difficulties
 ]
 
-export default function Component() {
+export function MathHoops() {
   const [score, setScore] = useState(0)
   const [level, setLevel] = useState(1)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
@@ -37,11 +53,9 @@ export default function Component() {
   const [fouls, setFouls] = useState(0)
   const [streak, setStreak] = useState(0)
   const [dailyCompletion, setDailyCompletion] = useState(0)
-  const [showParentDashboard, setShowParentDashboard] = useState(false)
-  const [gameHistory, setGameHistory] = useState([])
+  const [gameHistory, setGameHistory] = useState<GameHistoryItem[]>([])
 
   useEffect(() => {
-    // Reset quiz and update streak at midnight
     const now = new Date()
     const night = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0)
     const msToMidnight = night.getTime() - now.getTime()
@@ -53,15 +67,18 @@ export default function Component() {
       setFouls(0)
       setDailyCompletion(0)
       if (dailyCompletion === 10) {
-        setStreak(streak + 1)
+        setStreak(prevStreak => prevStreak + 1)
       } else {
         setStreak(0)
       }
-      setGameHistory([...gameHistory, { date: new Date(), score, fouls, completed: dailyCompletion === 10 }])
+      setGameHistory(prevHistory => [
+        ...prevHistory,
+        { date: new Date(), score, fouls, completed: dailyCompletion === 10 }
+      ])
     }, msToMidnight)
 
     return () => clearTimeout(timer)
-  }, [dailyCompletion, streak, gameHistory, score, fouls])
+  }, [dailyCompletion, score, fouls])
 
   const checkAnswer = () => {
     const currentQuestion = questions[currentQuestionIndex]
@@ -69,24 +86,24 @@ export default function Component() {
     const formattedCorrectAnswer = currentQuestion.answer.replace(/\s/g, '').toLowerCase()
 
     if (formattedUserAnswer === formattedCorrectAnswer) {
-      setScore(score + 10)
+      setScore(prevScore => prevScore + 10)
       setMessage("Swish! Perfect shot!")
-      setStreak(streak + 1)
+      setStreak(prevStreak => prevStreak + 1)
       if (score + 10 >= level * 50) {
-        setLevel(level + 1)
+        setLevel(prevLevel => prevLevel + 1)
       }
     } else {
-      setFouls(fouls + 1)
+      setFouls(prevFouls => prevFouls + 1)
       setStreak(0)
       setMessage(`Foul! The correct answer is ${currentQuestion.answer}. ${currentQuestion.explanation}`)
     }
     setUserAnswer('')
-    setDailyCompletion(dailyCompletion + 1)
+    setDailyCompletion(prevCompletion => prevCompletion + 1)
   }
 
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1)
+      setCurrentQuestionIndex(prevIndex => prevIndex + 1)
       setMessage('')
     } else {
       setQuizCompleted(true)
@@ -98,7 +115,7 @@ export default function Component() {
     return (
       <div className="flex items-center mt-2">
         {[...Array(5)].map((_, i) => (
-          <div key={i} className={`w-4 h-4 rounded-full mr-1 ${i < fouls ? 'bg-red-500' : 'bg-gray-300'}`}></div>
+          <div key={i} className={`w-4 h-4 rounded-full mr-1 ${i < fouls ? 'bg-red-500' : 'bg-gray-300'}`} aria-hidden="true"></div>
         ))}
         <span className="ml-2">{5 - fouls} fouls left</span>
       </div>
@@ -145,7 +162,7 @@ export default function Component() {
             <TabsContent value="learn">
               <Card>
                 <CardContent className="pt-6">
-                  <h3 className="text-2xl font-bold mb-4">Today's Lesson: Area</h3>
+                  <h3 className="text-2xl font-bold mb-4">Today&apos;s Lesson: Area</h3>
                   <p>Area is the space inside a 2D shape. To find the area of a rectangle, multiply its length by its width.</p>
                 </CardContent>
               </Card>
@@ -166,6 +183,7 @@ export default function Component() {
                           onChange={(e) => setUserAnswer(e.target.value)}
                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                           placeholder="Enter your answer"
+                          aria-label="Your answer"
                         />
                         <Button onClick={checkAnswer}>Submit</Button>
                       </div>
