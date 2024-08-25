@@ -210,7 +210,7 @@ export function MathHoops() {
                     </>
                   ) : (
                     <div>
-                      <p className="text-raptors-black mb-4">Great job! You've completed today's practice.</p>
+                      <p className="text-raptors-black mb-4">Great job! You&apos;ve completed today&apos;s practice.</p>
                       <Button onClick={() => setSelectedTopic(null)} className="bg-raptors-red text-raptors-white hover:bg-raptors-red-dark">Start New Topic</Button>
                     </div>
                   )}
@@ -268,7 +268,7 @@ export function MathHoops() {
                     title={`${nbaHighlights[currentVideoIndex].player} highlights`}
                   ></iframe>
                 </div>
-              </Card>
+              </CardContent>
             </Card>
           )}
         </CardContent>
