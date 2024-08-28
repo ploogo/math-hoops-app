@@ -49,6 +49,20 @@ const nbaHighlights = [
   { player: "Kawhi Leonard", videoId: "6yW7Tg9VVSw" },
 ];
 
+async function fetchMathQuestions(amount: number = 10, type?: string, difficulty?: string) {
+  try {
+    const response = await fetch(`http://localhost:3001/api/questions?count=${amount}&type=${type || ''}&difficulty=${difficulty || ''}`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch questions:", error);
+    return []; // Return an empty array if there's an error
+  }
+}
+
 export function MathHoops() {
   const [score, setScore] = useState(0)
   const [level, setLevel] = useState(1)
@@ -68,16 +82,16 @@ export function MathHoops() {
 
   useEffect(() => {
     if (selectedTopic) {
-      const topicQuestions = questions.filter(q => q.type === selectedTopic)
-      const shuffled = [...topicQuestions].sort(() => 0.5 - Math.random())
-      setDailyQuestions(shuffled.slice(0, 20))
-      setCurrentQuestionIndex(0)
-      setQuizCompleted(false)
-      setMessage('')
-      setDailyCompletion(0)
-      setFouls(0)
+      const loadQuestions = async () => {
+        const fetchedQuestions = await fetchMathQuestions(20, selectedTopic);
+        setDailyQuestions(fetchedQuestions);
+        setCurrentQuestionIndex(0);
+        setQuizCompleted(false);
+        setMessage('');
+      }
+      loadQuestions();
     }
-  }, [selectedTopic])
+  }, [selectedTopic]);
 
   const checkAnswer = () => {
     if (dailyQuestions.length === 0 || currentQuestionIndex >= dailyQuestions.length) return;
