@@ -1,12 +1,25 @@
-const fifthGradeMultiplicationQuestions = [
-    { question: "12 x 8 = ?", answer: 96 },
-    { question: "15 x 7 = ?", answer: 105 },
-    { question: "9 x 13 = ?", answer: 117 },
-    { question: "16 x 6 = ?", answer: 96 },
-    { question: "11 x 12 = ?", answer: 132 },
-    { question: "14 x 9 = ?", answer: 126 },
-    { question: "17 x 5 = ?", answer: 85 },
-    { question: "18 x 4 = ?", answer: 72 },
-    { question: "13 x 10 = ?", answer: 130 },
-    { question: "19 x 3 = ?", answer: 57 },
-];
+System.register("math-questions", ["axios"], function (exports_1, context_1) {
+    "use strict";
+    var axios_1;
+    var __moduleName = context_1 && context_1.id;
+    async function handler(req, res) {
+        try {
+            const response = await axios_1.default.get('http://localhost:1337/api/questions');
+            const questions = response.data.data;
+            res.status(200).json(questions);
+        }
+        catch (error) {
+            res.status(500).json({ error: 'Failed to fetch questions from Strapi' });
+        }
+    }
+    exports_1("default", handler);
+    return {
+        setters: [
+            function (axios_1_1) {
+                axios_1 = axios_1_1;
+            }
+        ],
+        execute: function () {
+        }
+    };
+});

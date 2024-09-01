@@ -4,9 +4,8 @@
     "module": "commonjs",
     "outDir": "./dist",
     "rootDir": ".",
-    // Remove or comment out this line:
-    // "rootDir": "./math-hoops-api/src",
     "strict": true,
+    "jsx": "preserve",
     "esModuleInterop": true,
     "lib": [
       "dom",
