@@ -410,6 +410,32 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/pages\/api\/math-questions.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/pages\/api\/math-questions-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/pages\/api\/math-questions.ts" : {
+      "cDF" : 0,
+      "ft" : 128,
+      "jxM" : 0,
+      "ma" : 0,
+      "mDT" : 0,
+      "mi" : 0,
+      "moR" : 0,
+      "moT" : 2,
+      "oA" : 0,
+      "oAP" : "\/pages\/api\/math-questions.js",
+      "oF" : 0,
+      "rC" : 0,
+      "tEC" : 2018
+    },
     "\/postcss.config.mjs" : {
       "cB" : 0,
       "ft" : 8192,
@@ -417,6 +443,29 @@
       "oA" : 0,
       "oAP" : "\/postcss.config.mjs",
       "oF" : 0
+    },
+    "\/prisma\/schema.prisma" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/prisma\/schema.prisma",
+      "oF" : 0
+    },
+    "\/prisma\/seed.ts" : {
+      "cDF" : 0,
+      "ft" : 128,
+      "jxM" : 0,
+      "ma" : 0,
+      "mDT" : 0,
+      "mi" : 0,
+      "moR" : 0,
+      "moT" : 2,
+      "oA" : 0,
+      "oAP" : "\/prisma\/seed.js",
+      "oF" : 0,
+      "rC" : 0,
+      "tEC" : 2018
     },
     "\/public\/next.svg" : {
       "ft" : 2097152,
