@@ -47,14 +47,6 @@
       "oAP" : "\/.next\/cache",
       "oF" : 0
     },
-    "\/.next\/fallback-build-manifest.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/.next\/fallback-build-manifest-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
-    },
     "\/.next\/package.json" : {
       "ft" : 524288,
       "oA" : 1,
@@ -86,17 +78,6 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/.next\/server\/interception-route-rewrite-manifest-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/server\/middleware-build-manifest-min.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/.next\/server\/middleware-build-manifest-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -176,72 +157,6 @@
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
-    },
-    "\/.next\/static\/chunks\/fallback\/amp.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/amp-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/static\/chunks\/fallback\/main.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/main-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/static\/chunks\/fallback\/pages\/_app.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 1,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/pages\/_app-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/static\/chunks\/fallback\/pages\/_error.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 1,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/pages\/_error-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/static\/chunks\/fallback\/react-refresh.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/react-refresh-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
-    "\/.next\/static\/chunks\/fallback\/webpack.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/.next\/static\/chunks\/fallback\/webpack-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
     },
     "\/.next\/static\/chunks\/polyfills.js" : {
       "bF" : 0,
@@ -609,7 +524,7 @@
       "mi" : 0,
       "moR" : 0,
       "moT" : 2,
-      "oA" : 0,
+      "oA" : 1,
       "oAP" : "\/src\/components\/MathHoops.js",
       "oF" : 0,
       "rC" : 0,
@@ -700,29 +615,6 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
-    },
-    "\/tailwind.config.ts" : {
-      "cDF" : 0,
-      "ft" : 128,
-      "jxM" : 0,
-      "ma" : 0,
-      "mDT" : 0,
-      "mi" : 0,
-      "moR" : 0,
-      "moT" : 2,
-      "oA" : 0,
-      "oAP" : "\/tailwind.config.js",
-      "oF" : 0,
-      "rC" : 0,
-      "tEC" : 2018
-    },
-    "\/tsconfig-CONFLICT-1.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/tsconfig-CONFLICT-1-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
     },
     "\/tsconfig.json" : {
       "ft" : 524288,
