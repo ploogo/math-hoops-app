@@ -295,61 +295,254 @@
       "sC" : 3,
       "tS" : 0
     },
-    "\/math-hoops-api\/node_modules" : {
-      "ft" : 65536,
-      "oA" : 2,
-      "oAP" : "\/math-hoops-api\/node_modules",
+    "\/math-hoops\/.editorconfig" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/.editorconfig",
       "oF" : 0
     },
-    "\/math-hoops-api\/package-lock.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/math-hoops-api\/package-lock-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
+    "\/math-hoops\/.env" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/.env",
+      "oF" : 0
     },
-    "\/math-hoops-api\/package.json" : {
-      "ft" : 524288,
-      "oA" : 1,
-      "oAP" : "\/math-hoops-api\/package-min.json",
-      "oF" : 0,
-      "oO" : 1,
-      "oS" : 1
+    "\/math-hoops\/.env.example" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/.env.example",
+      "oF" : 0
     },
-    "\/math-hoops-api\/src\/server.js" : {
+    "\/math-hoops\/.eslintignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/.eslintignore",
+      "oF" : 0
+    },
+    "\/math-hoops\/.eslintrc" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/math-hoops\/.eslintrc",
+      "oF" : 0
+    },
+    "\/math-hoops\/.gitignore" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/.gitignore",
+      "oF" : 0
+    },
+    "\/math-hoops\/config\/admin.js" : {
       "bF" : 0,
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/math-hoops-api\/src\/server-min.js",
+      "oAP" : "\/math-hoops\/config\/admin-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
     },
-    "\/math-hoops-api\/src\/server.ts" : {
-      "cDF" : 0,
-      "ft" : 128,
-      "jxM" : 0,
+    "\/math-hoops\/config\/api.js" : {
+      "bF" : 0,
+      "ft" : 64,
       "ma" : 0,
-      "mDT" : 0,
-      "mi" : 0,
-      "moR" : 0,
-      "moT" : 2,
+      "mi" : 1,
       "oA" : 0,
-      "oAP" : "\/math-hoops-api\/src\/server.js",
+      "oAP" : "\/math-hoops\/config\/api-min.js",
       "oF" : 0,
-      "rC" : 0,
-      "tEC" : 2018
+      "sC" : 3,
+      "tS" : 0
     },
-    "\/math-hoops-api\/tsconfig.json" : {
+    "\/math-hoops\/config\/database.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/config\/database-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/config\/middlewares.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/config\/middlewares-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/config\/plugins.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/config\/plugins-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/config\/server.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/config\/server-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/database\/migrations\/.gitkeep" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/database\/migrations\/.gitkeep",
+      "oF" : 0
+    },
+    "\/math-hoops\/favicon.png" : {
+      "ft" : 32768,
+      "iS" : 497,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/favicon.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
+    "\/math-hoops\/jsconfig.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/math-hoops-api\/tsconfig-min.json",
+      "oAP" : "\/math-hoops\/jsconfig-min.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
+    },
+    "\/math-hoops\/node_modules" : {
+      "ft" : 65536,
+      "oA" : 2,
+      "oAP" : "\/math-hoops\/node_modules",
+      "oF" : 0
+    },
+    "\/math-hoops\/package-lock.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/math-hoops\/package-lock-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/math-hoops\/package.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/math-hoops\/package-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/math-hoops\/public\/robots.txt" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/public\/robots.txt",
+      "oF" : 0
+    },
+    "\/math-hoops\/public\/uploads\/.gitkeep" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/public\/uploads\/.gitkeep",
+      "oF" : 0
+    },
+    "\/math-hoops\/README.md" : {
+      "cB" : 0,
+      "cS" : 0,
+      "eF" : 1,
+      "eL" : 1,
+      "ema" : 1,
+      "eSQ" : 1,
+      "ft" : 4096,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/README.html",
+      "oF" : 0,
+      "oFM" : 0,
+      "oS" : 0,
+      "pHT" : 0,
+      "pME" : 1,
+      "rFN" : 0,
+      "uCM" : 0
+    },
+    "\/math-hoops\/src\/admin\/app.example.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/src\/admin\/app.example-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/src\/admin\/webpack.config.example.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/src\/admin\/webpack.config.example-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/math-hoops\/src\/api\/.gitkeep" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/src\/api\/.gitkeep",
+      "oF" : 0
+    },
+    "\/math-hoops\/src\/extensions\/.gitkeep" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/src\/extensions\/.gitkeep",
+      "oF" : 0
+    },
+    "\/math-hoops\/src\/index.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/math-hoops\/src\/index-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     },
     "\/next-env.d.ts" : {
       "cDF" : 0,
@@ -410,17 +603,6 @@
       "oO" : 1,
       "oS" : 1
     },
-    "\/pages\/api\/math-questions.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 0,
-      "mi" : 1,
-      "oA" : 0,
-      "oAP" : "\/pages\/api\/math-questions-min.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
-    },
     "\/pages\/api\/math-questions.ts" : {
       "cDF" : 0,
       "ft" : 128,
@@ -443,29 +625,6 @@
       "oA" : 0,
       "oAP" : "\/postcss.config.mjs",
       "oF" : 0
-    },
-    "\/prisma\/schema.prisma" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/prisma\/schema.prisma",
-      "oF" : 0
-    },
-    "\/prisma\/seed.ts" : {
-      "cDF" : 0,
-      "ft" : 128,
-      "jxM" : 0,
-      "ma" : 0,
-      "mDT" : 0,
-      "mi" : 0,
-      "moR" : 0,
-      "moT" : 2,
-      "oA" : 0,
-      "oAP" : "\/prisma\/seed.js",
-      "oF" : 0,
-      "rC" : 0,
-      "tEC" : 2018
     },
     "\/public\/next.svg" : {
       "ft" : 2097152,
@@ -533,6 +692,17 @@
       "oAP" : "\/src\/app\/globals-min.css",
       "oF" : 0,
       "pg" : 0
+    },
+    "\/src\/app\/layout.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/src\/app\/layout-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
     },
     "\/src\/app\/layout.tsx" : {
       "cDF" : 0,
