@@ -71,6 +71,28 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.next\/server\/app\/page_client-reference-manifest.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/app\/page_client-reference-manifest-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/app\/page.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/app\/page-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/.next\/server\/interception-route-rewrite-manifest.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -78,6 +100,17 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/.next\/server\/interception-route-rewrite-manifest-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/middleware-build-manifest-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/middleware-build-manifest-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -101,6 +134,17 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.next\/server\/middleware-react-loadable-manifest-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/middleware-react-loadable-manifest-min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/.next\/server\/middleware-react-loadable-manifest.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -108,6 +152,17 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/.next\/server\/middleware-react-loadable-manifest-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/next-font-manifest-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/next-font-manifest-min-min.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -139,6 +194,17 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.next\/server\/server-reference-manifest-min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/server-reference-manifest-min-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/.next\/server\/server-reference-manifest.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -158,6 +224,138 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/.next\/server\/vendor-chunks\/@radix-ui.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/@radix-ui-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/@swc.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/@swc-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/class-variance-authority.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/class-variance-authority-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/clsx.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/clsx-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/lucide-react.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/lucide-react-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/next.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/next-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/vendor-chunks\/tailwind-merge.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/vendor-chunks\/tailwind-merge-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/server\/webpack-runtime.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/server\/webpack-runtime-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/chunks\/app-pages-internals.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/chunks\/app-pages-internals-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/chunks\/app\/layout.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/chunks\/app\/layout-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/chunks\/app\/page.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/chunks\/app\/page-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/chunks\/main-app.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/chunks\/main-app-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/.next\/static\/chunks\/polyfills.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -168,6 +366,29 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
+    },
+    "\/.next\/static\/chunks\/webpack.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/chunks\/webpack-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/css\/app\/layout.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/css\/app\/layout-min.css",
+      "oF" : 0,
+      "pg" : 0
     },
     "\/.next\/static\/development\/_buildManifest.js" : {
       "bF" : 0,
@@ -191,6 +412,100 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/.next\/static\/media\/6d93bde91c0c2823-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/6d93bde91c0c2823-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/26a46d62cd723877-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/26a46d62cd723877-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/55c55f0601d81cf3-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/55c55f0601d81cf3-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/97e0cb1ae144a2a9-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/97e0cb1ae144a2a9-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/581909926a08bbc8-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/581909926a08bbc8-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/a34f9d1faa5f3315-s.p.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/a34f9d1faa5f3315-s.p.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/media\/df0a9ae256c0569c-s.woff2" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/media\/df0a9ae256c0569c-s.woff2",
+      "oF" : 0
+    },
+    "\/.next\/static\/webpack\/633457081244afec._.hot-update.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/.next\/static\/webpack\/633457081244afec._.hot-update-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/.next\/static\/webpack\/app\/layout.d1e5a0a9154cf9d5.hot-update.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/webpack\/app\/layout.d1e5a0a9154cf9d5.hot-update-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/.next\/static\/webpack\/d1e5a0a9154cf9d5.webpack.hot-update.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/.next\/static\/webpack\/d1e5a0a9154cf9d5.webpack.hot-update-min.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/.next\/static\/webpack\/webpack.d1e5a0a9154cf9d5.hot-update.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/.next\/static\/webpack\/webpack.d1e5a0a9154cf9d5.hot-update-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/.next\/trace" : {
       "cB" : 0,
       "ft" : 8192,
@@ -198,6 +513,36 @@
       "oA" : 0,
       "oAP" : "\/.next\/trace",
       "oF" : 0
+    },
+    "\/.next\/types\/app\/layout.ts" : {
+      "cDF" : 0,
+      "ft" : 128,
+      "jxM" : 0,
+      "ma" : 0,
+      "mDT" : 0,
+      "mi" : 0,
+      "moR" : 0,
+      "moT" : 2,
+      "oA" : 0,
+      "oAP" : "\/.next\/types\/app\/layout.js",
+      "oF" : 0,
+      "rC" : 0,
+      "tEC" : 2018
+    },
+    "\/.next\/types\/app\/page.ts" : {
+      "cDF" : 0,
+      "ft" : 128,
+      "jxM" : 0,
+      "ma" : 0,
+      "mDT" : 0,
+      "mi" : 0,
+      "moR" : 0,
+      "moT" : 2,
+      "oA" : 0,
+      "oAP" : "\/.next\/types\/app\/page.js",
+      "oF" : 0,
+      "rC" : 0,
+      "tEC" : 2018
     },
     "\/.next\/types\/package.json" : {
       "ft" : 524288,
@@ -603,21 +948,6 @@
       "oO" : 1,
       "oS" : 1
     },
-    "\/pages\/api\/math-questions.ts" : {
-      "cDF" : 0,
-      "ft" : 128,
-      "jxM" : 0,
-      "ma" : 0,
-      "mDT" : 0,
-      "mi" : 0,
-      "moR" : 0,
-      "moT" : 2,
-      "oA" : 0,
-      "oAP" : "\/pages\/api\/math-questions.js",
-      "oF" : 0,
-      "rC" : 0,
-      "tEC" : 2018
-    },
     "\/postcss.config.mjs" : {
       "cB" : 0,
       "ft" : 8192,
@@ -698,7 +1028,7 @@
       "ft" : 64,
       "ma" : 0,
       "mi" : 1,
-      "oA" : 0,
+      "oA" : 1,
       "oAP" : "\/src\/app\/layout-min.js",
       "oF" : 0,
       "sC" : 3,

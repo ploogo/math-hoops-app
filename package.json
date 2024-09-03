@@ -1,39 +1,40 @@
 {
+  "optionalDependencies": {},
+  "scripts": {
+    "seed": "node prisma/seed.ts",
+    "start": "next start",
+    "dev": "next dev",
+    "lint": "next lint",
+    "build": "next build"
+  },
+  "version": "0.1.0",
   "dependencies": {
+    "axios": "^1.7.7",
+    "next": "^14.2.7",
+    "@types/tailwindcss": "^3.1.0",
+    "react": "^18.3.1",
+    "class-variance-authority": "^0.7.0",
+    "strapi": "^3.6.11",
+    "tailwind-merge": "^2.5.2",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
-    "@types/tailwindcss": "^3.1.0",
-    "axios": "^1.7.7",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.436.0",
-    "next": "14.2.6",
-    "react": "^18",
-    "react-dom": "^18",
-    "strapi": "^3.6.11",
-    "tailwind-merge": "^2.5.2"
-  },
-  "devDependencies": {
-    "@types/axios": "^0.14.0",
-    "@types/node": "^22.5.0",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.10",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "seed": "node prisma/seed.ts"
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.438.0",
+    "clsx": "^2.1.1"
   },
   "private": true,
   "name": "math-hoops-app",
-  "version": "0.1.0"
+  "devDependencies": {
+    "tailwindcss": "^3.4.10",
+    "@types/axios": "^0.14.0",
+    "@types/react": "^18",
+    "typescript": "^5.5.4",
+    "@types/node": "^22.5.0",
+    "eslint-config-next": "^14.2.7",
+    "eslint": "^8.57.0",
+    "postcss": "^8",
+    "autoprefixer": "^10.0.1",
+    "@types/react-dom": "^18",
+    "ts-node": "^10.9.2"
+  }
 }
